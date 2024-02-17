@@ -10,22 +10,9 @@ $wrapper = new Wrapper("#686bcb5013c34462453c0f23a2e1989c4a9e3c7af5ef8ca5a35b277
 
 $wrapper->api_connect();
  
-/* Request Post Links */
-/* Parameters for send email */
-$post = array (
-  "gender" => "Mr",
-  "lastname" => "Pesic",
-  "firstname" => "Nebojsa",
-  "email" => "nebasjoa@gmail.com",
-  "template" => "CFRMORD_EN",
-  "order_id" => rand(1000000,9000000),
-  "amount" => rand(10,900),
-  "scenario" => "default",
-  "lng" => "EN",
-  "cur" => "EUR"
-);
+/* Parameters for enable link */
 /* Make the request */
-$wrapper->api_post_method("emails" , $post);
+$wrapper -> api_delete_method("links","N3q3X");
 /* Recover the response */
 $response = $wrapper->get_message();
 //print_r(json_decode($response, true));
@@ -39,7 +26,7 @@ $response = $wrapper->get_message();
 </head>
 <body>
 
-<h1>Create a link and send it via email</h1>
+<h1>Delete a link</h1>
 
 <?php
 foreach (json_decode($response) as $x => $y) {

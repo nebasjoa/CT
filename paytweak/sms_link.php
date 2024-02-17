@@ -13,11 +13,12 @@ $wrapper->api_connect();
 /* Request Post Links */
 /* Parameters for send email */
 $post = array (
-  "gender" => "Mr",
+  "phone" => "+4915163709420",
   "lastname" => "Pesic",
   "firstname" => "Nebojsa",
   "email" => "nebasjoa@gmail.com",
-  "template" => "CFRMORD_EN",
+  "template" => "",
+  "message" => "text message including a payment link %LIEN%",
   "order_id" => rand(1000000,9000000),
   "amount" => rand(10,900),
   "scenario" => "default",
@@ -25,7 +26,7 @@ $post = array (
   "cur" => "EUR"
 );
 /* Make the request */
-$wrapper->api_post_method("emails" , $post);
+$wrapper->api_post_method("sms" , $post);
 /* Recover the response */
 $response = $wrapper->get_message();
 //print_r(json_decode($response, true));
@@ -39,7 +40,7 @@ $response = $wrapper->get_message();
 </head>
 <body>
 
-<h1>Create a link and send it via email</h1>
+<h1>Create a link and send it via SMS</h1>
 
 <?php
 foreach (json_decode($response) as $x => $y) {
