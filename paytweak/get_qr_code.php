@@ -10,15 +10,10 @@ $wrapper = new Wrapper("#686bcb5013c34462453c0f23a2e1989c4a9e3c7af5ef8ca5a35b277
 
 $wrapper->api_connect();
  
-/* Request Post Links */
-/* Parameters for get links */
-$tab = array(
- 	"order_id" => rand(1000000,9000000) ,
- 	"amount" => rand(100,1000),
-	"email" => "nebojsa.pesic@computop.com"
-);
+/* Parameters for enable link */
 /* Make the request */
-$wrapper->api_post_method("links" , $tab);
+$link_id = '02j0e';
+$wrapper -> api_get_method("qrcode",$link_id);
 /* Recover the response */
 $response = $wrapper->get_message();
 //print_r(json_decode($response, true));
@@ -31,28 +26,18 @@ $response = $wrapper->get_message();
 <title>Paytweak Sandbox</title>
 </head>
 <body>
-<img src="img/logo_computop.svg" alt="Computop logo" width="300" height="200">
-<h1>Create a link - response from Paytweak</h1>
+
+<h1>Enable a link</h1>
 
 <?php
-echo "<table style='border: 1px solid; padding: 10px;'>";
-echo "<tr>";
-echo "<th>Name</th>";
-echo "<th>Description</th>";
-echo "</tr>";
 foreach (json_decode($response) as $x => $y) {
-	echo "<tr>";
-	echo "<td>$x</td>";
-	echo "<td>$y</td>";
-	echo "</tr>";
+	echo "[$x] -> $y <br>";
 };
-echo "</table>";
 ?>
 
 </body>
 </html>
 
 <?php
-// as per Paytweak API documentation, this needs to be ran after every request
 $wrapper->api_disconnect();
 ?>
