@@ -12,13 +12,14 @@ body {
   background-color: #a5f729; /* Green */
   border: none;
   color: #7B29F7;
-  padding: 15px 32px;
+  padding: 10px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
+  border-radius: 10px;
 }
 
 h2 {
-	margin-top: 40px;
+	margin-top: 10px;
 }

@@ -19,7 +19,7 @@ $post = array (
   "email" => "nebasjoa@gmail.com",
   "template" => "CFRMORD_EN",
   "order_id" => rand(1000000,9000000),
-  "amount" => rand(10,900),
+  "amount" => rand(10,200),
   "scenario" => "default",
   "lng" => "EN",
   "cur" => "EUR"
@@ -28,7 +28,6 @@ $post = array (
 $wrapper->api_post_method("emails" , $post);
 /* Recover the response */
 $response = $wrapper->get_message();
-//print_r(json_decode($response, true));
 ?>
 
 <!DOCTYPE html>
