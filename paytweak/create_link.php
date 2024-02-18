@@ -35,15 +35,15 @@ $response = $wrapper->get_message();
 <h1>Create a link - response from Paytweak</h1>
 
 <?php
-echo "<table style='border: 1px solid; padding: 10px;'>";
+echo "<table style='border-collapse: collapse; padding: 1px; margin-top: 10px;'>";
 echo "<tr>";
-echo "<th>Name</th>";
-echo "<th>Description</th>";
+echo "<th style='padding: 5px; text-align: left; border: 1px solid;'>Name</th>";
+echo "<th style='padding: 5px; text-align: left; border: 1px solid;'>Description</th>";
 echo "</tr>";
 foreach (json_decode($response) as $x => $y) {
 	echo "<tr>";
-	echo "<td>$x</td>";
-	echo "<td>$y</td>";
+	echo "<td style='padding: 5px; text-align: left; border: 1px solid;'>$x</td>";
+	echo "<td style='padding: 5px; text-align: left; border: 1px solid;'>$y</td>";
 	echo "</tr>";
 };
 echo "</table>";
