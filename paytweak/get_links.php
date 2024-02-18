@@ -17,8 +17,6 @@ $tab = array("month" => "02", "year" => "2024");
 $wrapper -> api_get_method("links",$tab);
 /* Recover the response */
 $response = $wrapper->get_message();
-//print_r($response);
-//print_r(json_decode($response, true));
 ?>
 
 <!DOCTYPE html>
@@ -32,20 +30,23 @@ $response = $wrapper->get_message();
 <h1>Get links - response from Paytweak</h1>
 
 <?php
-//echo "<table style='border: 1px solid; padding: 10px;'>";
-//echo "<tr>";
-//echo "<th>Name</th>";
-//echo "<th>Description</th>";
-//echo "</tr>";
-//foreach (json_decode($response) as $x => $y) {
-	//echo "<tr>";
-	//echo "<td>$x</td>";
-	//echo "<td>$y</td>";
-	//echo "</tr>";
-	//echo json_decode($response);
-//};
-//echo "</table>";
-print_r(json_decode($response, true));
+echo "<table style='border: 1px solid; padding: 10px;'>";
+echo "<tr>";
+echo "<th>ID</th>";
+echo "<th>Link URL</th>";
+echo "<th>Active</th>";
+echo "<th>Paid</th>";
+echo "</tr>";
+
+foreach (json_decode($response, true) as $x => $y) {
+	echo "<tr>";
+	echo "<td>$x</td>";
+	echo "<td><a style='color: #a5f729' href='$y[link_url]'>Pay</a></td>";
+	echo "<td>$y[active]</td>";
+	echo "<td>$y[paid]</td>";
+	echo "</tr>";
+};
+echo "</table>";
 ?>
 
 </body>

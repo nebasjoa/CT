@@ -12,7 +12,8 @@ $wrapper->api_connect();
  
 /* Parameters for disable link */
 /* Make the request */
-$wrapper -> api_put_method("links/disable","N3q3X");
+$link_id = $_GET["linkid"];
+$wrapper -> api_put_method("links/disable",$link_id);
 /* Recover the response */
 $response = $wrapper->get_message();
 //print_r(json_decode($response, true));
