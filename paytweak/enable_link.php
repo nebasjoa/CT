@@ -12,10 +12,10 @@ $wrapper->api_connect();
  
 /* Parameters for enable link */
 /* Make the request */
-$wrapper -> api_put_method("links/activate","N3q3X");
+$link_id = $_GET["linkid"];
+$wrapper -> api_put_method("links/activate",$link_id);
 /* Recover the response */
 $response = $wrapper->get_message();
-//print_r(json_decode($response, true));
 ?>
 
 <!DOCTYPE html>

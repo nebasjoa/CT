@@ -30,20 +30,22 @@ $response = $wrapper->get_message();
 <h1>Get links - response from Paytweak</h1>
 
 <?php
-echo "<table style='border: 1px solid; padding: 10px;'>";
+echo "<table style='border-collapse: collapse; padding: 1px; margin-top: 10px;'>";
 echo "<tr>";
-echo "<th>ID</th>";
-echo "<th>Link URL</th>";
-echo "<th>Active</th>";
-echo "<th>Paid</th>";
+echo "<th style='padding: 5px; text-align: left; border: 1px solid;'>ID</th>";
+echo "<th style='padding: 5px; text-align: left; border: 1px solid;'>Amount</th>";
+echo "<th style='padding: 5px; text-align: left; border: 1px solid;'>Link URL</th>";
+echo "<th style='padding: 5px; text-align: left; border: 1px solid;'>Active</th>";
+echo "<th style='padding: 5px; text-align: left; border: 1px solid;'>Paid</th>";
 echo "</tr>";
 
 foreach (json_decode($response, true) as $x => $y) {
 	echo "<tr>";
-	echo "<td>$x</td>";
-	echo "<td><a style='color: #a5f729' href='$y[link_url]'>Pay</a></td>";
-	echo "<td>$y[active]</td>";
-	echo "<td>$y[paid]</td>";
+	echo "<td style='padding: 5px; text-align: left; border: 1px solid;'>$x</td>";
+	echo "<td style='padding: 5px; text-align: left; border: 1px solid;'>$y[amount]</td>";
+	echo "<td style='padding: 5px; text-align: left; border: 1px solid;'><a style='color: #a5f729' href='$y[link_url]'>Pay</a></td>";
+	echo "<td style='padding: 5px; text-align: left; border: 1px solid;'>$y[active]</td>";
+	echo "<td style='padding: 5px; text-align: left; border: 1px solid;'>$y[paid]</td>";
 	echo "</tr>";
 };
 echo "</table>";
